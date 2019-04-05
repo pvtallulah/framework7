@@ -220,7 +220,7 @@ const Input = {
       const $inputEl = $clicked.siblings('input, textarea').eq(0);
       const $showPasswordEl = $clicked.siblings('span').eq(0);
       if ($showPasswordEl.length) {
-        if ($inputEl[0].tagName === 'INPUT' && $inputEl[0].type !== 'password') $inputEl[0].type = 'password'
+        if ($inputEl[0].tagName === 'INPUT' && $inputEl[0].type !== 'password') $inputEl[0].type = 'password';
       }
       const previousValue = $inputEl.val();
       $inputEl
@@ -232,8 +232,8 @@ const Input = {
     function showPassword() {
       const $clicked = $(this);
       const $inputEl = $clicked.siblings('input').eq(0);
-      if ($inputEl[0].type === 'password') $inputEl[0].type = 'text'
-      else if ($inputEl[0].type === 'text') $inputEl[0].type = 'password'
+      if ($inputEl[0].type === 'password') $inputEl[0].type = 'text';
+      else if ($inputEl[0].type === 'text') $inputEl[0].type = 'password';
     }
     $(document).on('click', '.input-clear-button', clearInput);
     $(document).on('click', '.input-show-password-button', showPassword);
