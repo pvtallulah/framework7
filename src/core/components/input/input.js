@@ -218,6 +218,10 @@ const Input = {
     function clearInput() {
       const $clicked = $(this);
       const $inputEl = $clicked.siblings('input, textarea').eq(0);
+      const $showPasswordEl = $clicked.siblings('span').eq(0);
+      if ($showPasswordEl.length) {
+        if ($inputEl[0].tagName === 'INPUT' && $inputEl[0].type !== 'password') $inputEl[0].type = 'password'
+      }
       const previousValue = $inputEl.val();
       $inputEl
         .val('')
@@ -225,7 +229,14 @@ const Input = {
         .focus()
         .trigger('input:clear', previousValue);
     }
+    function showPassword() {
+      const $clicked = $(this);
+      const $inputEl = $clicked.siblings('input').eq(0);
+      if ($inputEl[0].type === 'password') $inputEl[0].type = 'text'
+      else if ($inputEl[0].type === 'text') $inputEl[0].type = 'password'
+    }
     $(document).on('click', '.input-clear-button', clearInput);
+    $(document).on('click', '.input-show-password-button', showPassword);
     $(document).on('change input', 'input, textarea, select', onChange, true);
     $(document).on('focus', 'input, textarea, select', onFocus, true);
     $(document).on('blur', 'input, textarea, select', onBlur, true);

@@ -250,6 +250,54 @@ textarea {
   pointer-events: auto;
   visibility: visible;
 }
+.input-show-password-button {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition-duration: 100ms;
+  position: absolute;
+  top: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  z-index: 1;
+  cursor: pointer;
+  background: none;
+  width: var(--f7-input-show-password-button-size);
+  height: var(--f7-input-show-password-button-size);
+  margin-top: calc(-1 * var(--f7-input-show-password-button-size) / 2);
+  color: var(--f7-input-show-password-button-color);
+  .ltr({
+    right: 30px;
+  });
+  .rtl({
+    left: 30px;
+  });
+  &:after {
+    .core-icons-font();
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    top: 50%;
+  }
+  .item-input-wrap & {
+    top: calc(var(--f7-input-height) / 2);
+  }
+  &.active-state {
+    opacity: 0.75 !important;
+  }
+}
+
+.input-with-value ~ .input-show-password-button,
+.item-input-with-value .input-show-password-button,
+.input-with-value .input-show-password-button {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
 .input-dropdown-wrap,
 .input-dropdown {
   position: relative;

@@ -10,6 +10,8 @@ export namespace Input {
     'input:empty': () => void
     /** Event will be triggered after input value will be cleared by clicking on input clear button */
     'input:clear': () => void
+    /** Event will be triggered when input value becomes empty */
+    'input:showPassword': () => void
   }
   interface AppMethods {
     input: {
